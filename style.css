@@ -1,3 +1,26 @@
+
 body{
-    background-color: aquamarine;
+    background-color: #222;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-size: 7.5vmin;
+}
+#game-board{
+    display: grid;
+    background: #ccc;
+    border: 2vmin solid #bbb;
+    grid-template-columns: repeat(4, 20vmin);
+    grid-template-rows: repeat(4,20vmin);
+    gap: 2vmin;
+    border-radius: 6px;
+    position: relative;
+    padding: 2vmin;
+}
+.cell{
+    background-color: #9b9a9a;
+    border: 2vmin;
+    border-radius: 8px;
 }
