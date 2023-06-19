@@ -4,11 +4,28 @@ const cellsize= 15;
 const gap= 2;
 
 class Grid{
+    #cells
     constructor(gridElement){
      gridElement.style.setProperty("--grid-size", gridsize)
      gridElement.style.setProperty("--cell-size", `${cellsize}vmin`)
      gridElement.style.setProperty("--cell-gap", `${gap}vmin`)
-    createCellElements(gridElement);
+    this.#cells = createCellElements(gridElement).map((cellElement,index) =>{
+        return new Cell(
+            cellElement,
+            index%gridsize,
+            Math.floor(index/gridsize)
+            )
+        })
+    }
+}
+class Cell{
+    #x
+    #y
+    #classElement
+    constructor(classElement,x,y){
+        this.#classElement=classElement;
+        this.#x=x;
+        this.#y=y;
     }
 }
 function createCellElements(gridElement){
