@@ -17,15 +17,33 @@ class Grid{
             )
         })
     }
+    get #emptyCells(){
+        return this.#cells.filter((cell)=> cell.tile==null)
+    }
+    randomEmptyCell(){
+        const randomIndex=Math.floor(Math.random()*this.#emptyCells.length);
+        return this.#emptyCells[randomIndex];
+    }
 }
 class Cell{
     #x
     #y
-    #classElement
-    constructor(classElement,x,y){
-        this.#classElement=classElement;
+    #cellElement
+    #tile
+    constructor(cellElement,x,y){
+        this.#cellElement=cellElement;
         this.#x=x;
         this.#y=y;
+    }
+    get tile(){
+        return this.#tile
+    }
+    set tile(value){
+        this.#tile=value;
+        if(value==null) return
+        this.#tile.#x=this.#x;
+        this.#tile.#y=this.#y;
+
     }
 }
 function createCellElements(gridElement){
@@ -40,3 +58,6 @@ function createCellElements(gridElement){
 }
 const gameBoard=document.getElementById("game-board");
 const grid = new Grid(gameBoard);  
+console.log(grid.randomEmptyCell())
+// grid.randomEmptyCell.tile=new Tile(gameBoard);
+// grid.randomEmptyCell.tile=new Tile(gameBoard);
