@@ -109,7 +109,7 @@ function createCellElements(gridElement){
 const gameBoard=document.getElementById("game-board");
 const grid = new Grid(gameBoard);  
 grid.randomEmptyCell.tile=new Tile(gameBoard);
-//  grid.randomEmptyCell.tile=new Tile(gameBoard);
+grid.randomEmptyCell.tile=new Tile(gameBoard);
 setinput()
  function setinput(){
     window.addEventListener("keydown" ,handleInput,{once : true})
@@ -126,12 +126,25 @@ setinput()
                         break;
         case "ArrowRight": moveright();
                     break;
-        defualt : setupinput() ;
+        defualt : setinput() ;
                     return;
     }
-    setupinput();
+    setinput();
  }
  function moveup(){
-    slideTiles(grid.cellsByColumn);
-
+   return slideTiles(grid.cellsByColumn);
+ }
+ function slideTiles(cells){
+    cells.forEach(group => {
+        for(let i=1;i<group.length;i++){
+            const cell=group[i];
+            let lastValidCell=null
+                for(let j=i-1 ; j>=0 ; j--){
+                    const moveToCell =group[j]
+                    if(!moveToCell.canAccept(cell.tile))    break
+                    lastValidCell=moveToCell
+                }
+                if(lastValidCell!=null)
+        }
+    });
  }
