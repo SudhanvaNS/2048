@@ -1,55 +1,55 @@
-
-:root{
-    --grid-size: 4;
-    --cell-size: 15vmin;
-    --cell-gap: 2vmin;
-}
-body{
-    background-color: #222;
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: Arial;
+  }
+  
+  body {
+    background-color: #333;
     display: flex;
-    justify-content:center;
+    justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
     font-size: 7.5vmin;
-}
-#game-board{
-   
+  }
+  
+  #game-board {
     display: grid;
-    background: #bbada0;
     grid-template-columns: repeat(var(--grid-size), var(--cell-size));
-    grid-template-rows: repeat(var(--grid-size),var(--cell-size));
+    grid-template-rows: repeat(var(--grid-size), var(--cell-size));
+    background-color: #CCC;
     gap: var(--cell-gap);
-    border-radius: var(--grid-size);
-    position: relative;
+    border-radius: 1vmin;
     padding: var(--cell-gap);
-}
-.cell{
-    background-color: #cdc1b5;
-    border: 2vmin;
-    border-radius: 8px;
-}
-.tile{
-    --x:2;
-    --y:0;
+    position: relative;
+  }
+  
+  .cell {
+    background-color: #AAA;
+    border-radius: 1vmin;
+  }
+  
+  .tile {
     position: absolute;
     display: flex;
-    height: var(--cell-size);
-    width: var(--cell-size);
     justify-content: center;
     align-items: center;
+    width: var(--cell-size);
+    height: var(--cell-size);
+    background-color: red;
     border-radius: 1vmin;
     top: calc(var(--y) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
-    left: calc(var(--x) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));   
-    background:#f2b179;
-    color: #f9f6f2;
-    font-weight: bold ;
+    left: calc(var(--x) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
+    font-weight: bold;
+    background-color: hsl(200, 50%, var(--background-lightness));
+    color: hsl(200, 25%, var(--text-lightness));
     animation: show 200ms ease-in-out;
-    transition : 100ms ease-in-out;
-}
-@keyframes show{
-    0%{
-        opacity: .5;
-        transform: scale(0);
+    transition: 100ms ease-in-out;
+  }
+  
+  @keyframes show {
+    0% {
+      opacity: .5;
+      transform: scale(0);
     }
-}
+  }
