@@ -1,4 +1,5 @@
 // import Grid from  "grid.js"; 
+// added a comment
 const gridsize= 4;
 const cellsize= 15;
 const gap= 2;
